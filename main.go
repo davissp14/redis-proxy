@@ -50,7 +50,7 @@ cacert:     Path to the ca certificate.
 	var tlsConfig = &tls.Config{}
 
 	if *cacertPtr != "" {
-		tlsConfig, err = buildCertificate()
+		tlsConfig, err = buildCertificate(*cacertPtr)
 		if err != nil {
 			panic(err)
 		}
@@ -71,6 +71,7 @@ cacert:     Path to the ca certificate.
 
 		// Each client connection will be paired with separate server connection.
 		targetURI := fmt.Sprintf("%s:%s", *hostnamePtr, *portPtr)
+		log.Println(targetURI)
 		server, err := tls.Dial("tcp", targetURI, tlsConfig)
 		if err != nil {
 			log.Fatalf("client: dial: %s", err)
@@ -129,8 +130,8 @@ func listenerInterface(port string) (*net.TCPListener, error) {
 	return listener, nil
 }
 
-func buildCertificate() (*tls.Config, error) {
-	clientCert, err := ioutil.ReadFile("./cert.pem")
+func buildCertificate(pathToCert string) (*tls.Config, error) {
+	clientCert, err := ioutil.ReadFile(pathToCert)
 	if err != nil {
 		return nil, err
 	}
