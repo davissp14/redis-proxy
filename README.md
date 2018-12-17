@@ -11,7 +11,7 @@ $ ./main
 
 Redis Proxy
 ==============
-password:   Password to target redis server. ( Defaults to using `masterauth` )
+password:   Password of the target redis server. ( Defaults to using `masterauth` )
 hostname:   Hostname of the target redis server.
 port:       Port of the target redis server.
 cacert:     Path to the ca certificate.
