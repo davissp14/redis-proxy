@@ -17,9 +17,13 @@ port:       Port of the target redis server.
 cacert:     Path to the ca certificate ( Optional )
 
 
-./main -hostname=<hostname> -port=<port> -cacert=<path-to-ca-cert> -password=<remote-redis-auth>
+$ ./main -hostname=<hostname> -port=<port> -cacert=<path-to-ca-cert> -password=<remote-redis-auth>
+
+Secure connection is now available on port `5000`
 
 ```
+
+The Proxy connection will bind to port 5000 and once it has indicated that the connection is available you should be good to go. 
 
 ### Attaching Local Redis as a Slave
 ```
