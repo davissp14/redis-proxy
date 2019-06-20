@@ -21,16 +21,24 @@ cacert:     Path to the ca certificate ( Optional )
 
 ```
 
-Once the connection becomes available you can do things like:
-
-1. Attach your local Redis as a slave  
+### Attaching Local Redis as a Slave
 ```
 $ redis-cli slaveof localhost 5000 
 ```
 
-2. Connect to the port to issue Redis commands against the master
+### Issuing Commands
+
+
+**Netcat**
 ```
 nc localhost 5000
-
-set hey there
 ```
+
+**Telnet**
+```
+telnet localhost 5000
+```
+
+### Redis Clients
+
+Should be compatible with any functional redis client.
