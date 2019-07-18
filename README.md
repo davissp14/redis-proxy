@@ -25,23 +25,12 @@ Secure connection is now available on port `5000`
 
 The Proxy connection will bind to port 5000 and once it has indicated that the connection is available you should be good to go. 
 
-### Attaching Local Redis as a Slave
+
+### Redis Cli
 ```
-$ redis-cli slaveof localhost 5000 
+redis-cli localhost 5000
 ```
 
-### Issuing Commands
-
-
-**Netcat**
-```
-nc localhost 5000
-```
-
-**Telnet**
-```
-telnet localhost 5000
-```
 
 ### Redis Clients
 
